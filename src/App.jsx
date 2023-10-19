@@ -4,19 +4,22 @@ import { TASKS } from './consts/tasks'
 import './App.css'
 
 function App() {
+  const [task, setTask] = useState("")
   const [tasks, setTasks] = useState(TASKS)
 
-  const addTask = () => {
-    const taskToAdd = document.getElementById('task-input').value.trim()
+  const handleChange = (e) => {
+    setTask(e.target.value)
+  }
 
-    if (taskToAdd) {
-      const task = {
+  const addTask = () => {
+    if (task) {
+      const taskToAdd = {
         id: tasks.length + 1,
-        title: taskToAdd,
+        title: task,
         date: new Date(),
       }
-
-      setTasks([...tasks, task])
+      
+      setTasks([...tasks, taskToAdd])
     }
   }
 
@@ -30,7 +33,7 @@ function App() {
         <h1>TODO APP</h1>
       </header>
       <div className='add-task'>
-        <input id='task-input' className='task-input' type='text' placeholder='Add new task...' />
+        <input id='task-input' className='task-input' type='text' placeholder='Add new task...' onChange={handleChange}/>
         <button className='btn add-btn' onClick={addTask}>Add</button>
       </div>
       <section>
