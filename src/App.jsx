@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { TodoItem } from './components/TodoItem'
 import { TASKS } from './consts/tasks'
+import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
   const addTask = () => {
     if (task) {
       const taskToAdd = {
-        id: tasks.length + 1,
+        id: uuidv4(),
         title: task,
         date: new Date(),
       }
