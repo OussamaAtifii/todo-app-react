@@ -6,6 +6,8 @@ Aplicación de lista de tareas (Todo App) desarrollada en React. Con esta aplica
 
 - Crear nuevas tareas.
 - Eliminar tareas.
+- Filtrar tareas.
+- Completar tareas.
 - Interfaz de usuario sencilla.
 
 ## Requisitos Previos
@@ -16,17 +18,23 @@ Asegúrate de tener Node.js y npm instalados en tu sistema antes de continuar.
 
 1. Clona este repositorio en tu máquina local utilizando Git:
 
-    ```bash
-    git clone https://github.com/OussamaAtifii/todo-app-react.git
+   ```bash
+   git clone https://github.com/OussamaAtifii/todo-app-react.git
+   ```
+
 2. Navega al directorio del proyecto:
-    ```bash
-    cd todo-app-react
+   ```bash
+   cd todo-app-react
+   ```
 3. Instala las depencias utilizando npm:
-    ```bash
-    npm install
+   ```bash
+   npm install
+   ```
 4. Ejecuta la aplicación:
-    ```bash
-    npm run dev
+   ```bash
+   npm run dev
+   ```
+
 ## Uso del la Aplicación
 
 - Para crear una nueva tarea, simplemente escribe la tarea en el campo de texto y presiona "Add".
