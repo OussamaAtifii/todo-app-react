@@ -1,4 +1,4 @@
-export function TodoItem({ title, date, deleteTask }) {
+export function TodoItem({ title, date, completed, deleteTask, completeTask }) {
   function formatDate(date) {
     const day = date.getDate()
     const month = date.getMonth() + 1
@@ -12,10 +12,13 @@ export function TodoItem({ title, date, deleteTask }) {
   return (
     <article>
       <div>
-        <p>{title}</p>
+        <p className={completed ? 'completed-task' : ''}>{title}</p>
         <p className='date'>{formatDate(date)}</p>
       </div>
-      <button className='btn delete-btn' onClick={deleteTask}>Delete</button>
+      <div className='completed-container'>
+        <button className={completed ? 'btn completed-btn' : 'btn notcompleted-btn'} onClick={completeTask}>{completed ? 'Completed' : 'Not Completed'}</button>
+        <button className='btn delete-btn' onClick={deleteTask}>Delete</button>
+      </div>
     </article>
   )
 }
