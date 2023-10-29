@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { TodoItem } from './components/TodoItem'
-import { TASKS } from './consts/tasks'
 import { v4 as uuidv4 } from 'uuid'
+import { useTask } from './hooks/useTask'
 import './App.css'
 
 function App() {
+  const { tasks, setTasks, deleteTask, completeTask } = useTask()
   const [task, setTask] = useState("")
-  const [tasks, setTasks] = useState(TASKS)
   const [filterCompleted, setFilterCompleted] = useState(false)
-
 
   const handleChange = (e) => {
     setTask(e.target.value)
@@ -24,19 +23,6 @@ function App() {
 
       setTasks([...tasks, taskToAdd])
       setTask("")
-    }
-  }
-
-  const deleteTask = (id) => {
-    setTasks(tasks.filter(task => task.id !== id))
-  }
-
-  const completeTask = (id) => {
-    const taskToModify = tasks.find(task => task.id === id)
-
-    if (taskToModify) {
-      taskToModify.completed = !taskToModify.completed
-      setTasks([...tasks])
     }
   }
 
