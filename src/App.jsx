@@ -6,7 +6,7 @@ import './App.css'
 
 function App() {
   const { tasks, setTasks, deleteTask, completeTask } = useTask()
-  const [task, setTask] = useState("")
+  const [task, setTask] = useState('')
   const [filterCompleted, setFilterCompleted] = useState(false)
 
   const handleChange = (e) => {
@@ -22,16 +22,12 @@ function App() {
       }
 
       setTasks([...tasks, taskToAdd])
-      setTask("")
+      setTask('')
     }
   }
 
-  const handleCompletedTasks = () => {
-    setFilterCompleted(true)
-  }
-
-  const handleAllTasks = () => {
-    setFilterCompleted(false)
+  const handleTasks = (option) => {
+    setFilterCompleted(option)
   }
 
   const filteredTasks = filterCompleted
@@ -48,8 +44,8 @@ function App() {
         <button className='btn add-btn' onClick={addTask}>Add</button>
       </div>
       <div className='filter-container'>
-        <button className='btn filter-btn' onClick={handleCompletedTasks}>Completed Tasks</button>
-        <button className='btn filter-btn' onClick={handleAllTasks}>All Tasks</button>
+        <button className='btn filter-btn' onClick={() => handleTasks(true)}>Completed Tasks</button>
+        <button className='btn filter-btn' onClick={() => handleTasks(false)}>All Tasks</button>
       </div>
       <section>
         {filteredTasks.map(({ id, title, date, completed }) => (
